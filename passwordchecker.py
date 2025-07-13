@@ -65,6 +65,5 @@ def main():
     print("Feedback:")
     for comment in feedback:
         print(f"- {comment}")
-
 if __name__ == "__main__":
     main()
