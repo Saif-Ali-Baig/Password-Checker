@@ -39,7 +39,7 @@ I wanted to learn Python and regex because I saw a lot of talk on X about passwo
 **Solution:** Searched online and chose a common set `[!@#$%^&*]` for simplicity. Will expand later if needed.
 
 **Challenge:** Scoring felt arbitrary, and I wasn’t sure how to balance it.  
-**Solution:** Set a simple threshold:
+**Solution:** Set a simple threshold:  
 - **Strong**: score ≥ 4  
 - **Moderate**: score = 2–3  
 - **Weak**: score < 2  
@@ -47,8 +47,30 @@ Will refine after testing.
 
 ---
 
+## Day 3: Refining Logic and Common Passwords 
+
+### What I Accomplished
+
+- Added a check for common passwords (e.g., `"password"`, `"qwerty"`).
+- Made length scoring more granular:
+  - +2 points for 12+ characters
+  - +1 point for 8–11 characters
+- Expanded special characters regex to include more symbols.
+- Added `if __name__ == "__main__":` for better code organization.
+- Improved feedback messages for clarity.
+
+### Challenges and How I Resolved Them
+
+**Challenge:** Wasn’t sure how to handle common passwords effectively.  
+**Solution:** Used a simple list for now. If the password is common, I reset the score in case it’s too easy to guess.
+
+**Challenge:** Feedback messages were inconsistent in tone.  
+**Solution:** Standardized them to start with **"Good," "Moderate," "Weak,"** or **"Critical"** for clarity.
+
+---
+
 ## Next Steps
 
-- Add a check for common passwords to avoid weak ones like `"password123"`.
-- Make length checks more granular (e.g., 12+ characters stronger than 8–11).
-- Test with more passwords to ensure scoring makes sense.
+- Plan to deploy this as a web app using **Streamlit** for a better user interface.
+- Test with edge cases (e.g., empty passwords, very long passwords).
+- Maybe add a feature to suggest improvements for weak passwords.
