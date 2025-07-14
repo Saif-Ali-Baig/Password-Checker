@@ -30,7 +30,7 @@ def check_password_strength(password):
     if re.search(r'[a-z]', password):
         score += 1
         feedback.append("Good: Contains lowercase letters.")
-    else품
+    else:
         feedback.append("Weak: No lowercase letters.")
     
     # Check for digits
