@@ -1,6 +1,11 @@
+import streamlit as st
 import re
 
 def check_password_strength(password):
+    """Check the strength of a password based on various criteria."""
+    if not password:
+        return "Invalid", ["Critical: Password cannot be empty."]
+    
     score = 0
     feedback = []
     
@@ -25,7 +30,7 @@ def check_password_strength(password):
     if re.search(r'[a-z]', password):
         score += 1
         feedback.append("Good: Contains lowercase letters.")
-    else:
+    else품
         feedback.append("Weak: No lowercase letters.")
     
     # Check for digits
@@ -59,12 +64,20 @@ def check_password_strength(password):
     return strength, feedback
 
 def main():
-    password = input("Enter a password to check: ")
-    strength, feedback = check_password_strength(password)
-    print(f"\nPassword Strength: {strength}")
-    print("Feedback:")
-    for comment in feedback:
-        print(f"- {comment}")
+    st.title("Password Strength Checker")
+    st.write("Enter a password to evaluate its strength.")
+    
+    password = st.text_input("Password", type="password")
+    
+    if st.button("Check Strength"):
+        if password:
+            strength, feedback = check_password_strength(password)
+            st.write(f"**Password Strength**: {strength}")
+            st.write("**Feedback**:")
+            for comment in feedback:
+                st.write(f"- {comment}")
+        else:
+            st.error("Please enter a password.")
 
 if __name__ == "__main__":
     main()
